@@ -11,6 +11,8 @@ import IRecipeState from "./Types/IRecipeState"
 
 import User from "./Models/User"
 
+import {get} from "./functions"
+
 import Header from './Components/Header';
 import Body from './Components/Body';
 import Footer from './Components/Footer';
@@ -21,8 +23,6 @@ class App extends React.Component<IRecipeProps, IRecipeState>
 	users: User[] = [];
 
 	componentDidMount(){
-		console.log(this.props);
-		console.log(userData)
 		this.getData()
 	}
 

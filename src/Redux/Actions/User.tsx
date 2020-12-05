@@ -3,12 +3,18 @@ const UserAction = u => ( {
 	payload: u,
 } );
 
-let UsersAction = u => ( {
+const UsersAction = u => ( {
 	type: 'USERS',
 	payload: u,
 } );
 
+const displayUserAction=u=>({
+	type: 'DISPLAY_USER',
+	payload: u
+})
+
 export {
 	UsersAction,
-	UserAction
+	UserAction,
+	displayUserAction
 }

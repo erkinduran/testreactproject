@@ -10,3 +10,6 @@ footer {
 .anchor {
   cursor: pointer !important;
 }
+.userValue{
+  max-width:200px!important;
+}
