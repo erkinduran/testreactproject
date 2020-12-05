@@ -1,5 +1,6 @@
-import UserAction from "./User"
+import {UserAction,UsersAction} from "./User"
 
 export {
-	UserAction
+	UserAction,
+	UsersAction
 }

@@ -1,6 +1,14 @@
 const UserAction = u => ( {
-	type: 'HEADER_DISPLAY',
+	type: 'USER',
 	payload: u,
 } );
 
-export default UserAction
+let UsersAction = u => ( {
+	type: 'USERS',
+	payload: u,
+} );
+
+export {
+	UsersAction,
+	UserAction
+}

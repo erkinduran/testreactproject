@@ -1,10 +1,10 @@
-import { User } from "../../Models"
+import User from "../../Models/User"
 
-export default function UserReducer ( state = User, action )
+export default function UserReducer ( state = new User(0,"","","","","","","","","","","","","",""), action )
 {
 	switch ( action.type )
 	{
-		case 'HEADER_DISPLAY':
+		case 'USER':
 			return action.payload;
 		default:
 			return state;
