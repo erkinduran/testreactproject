@@ -16,7 +16,6 @@ import {get} from "./functions"
 import Header from './Components/Header';
 import Body from './Components/Body';
 import Footer from './Components/Footer';
-import userData from "./data/users.json"
 
 class App extends React.Component<IRecipeProps, IRecipeState>
 {
@@ -27,29 +26,31 @@ class App extends React.Component<IRecipeProps, IRecipeState>
 	}
 
 	getData(){
-		const {UsersAction} = this.props; 
-		for(let i in userData){
-			const item=userData[i]
-			let newItem = new User(
-				item.id,
-				item.name,
-				item.username,
-				item.email,
-				item.address.street,
-				item.address.suite,
-				item.address.city,
-				item.address.zipcode,
-				item.address.geo.lat,
-				item.address.geo.lng,
-				item.phone,
-				item.website,
-				item.company.name,
-				item.company.catchPhrase,
-				item.company.bs
-			)
-			this.users.push(newItem)
-		}
-		UsersAction(this.users)
+		get("http://localhost:3000/users",res=>{
+			const {UsersAction} = this.props; 
+			for(let i in res){
+				const item=res[i]
+				let newItem = new User(
+					item.id,
+					item.name,
+					item.username,
+					item.email,
+					item.address.street,
+					item.address.suite,
+					item.address.city,
+					item.address.zipcode,
+					item.address.geo.lat,
+					item.address.geo.lng,
+					item.phone,
+					item.website,
+					item.company.name,
+					item.company.catchPhrase,
+					item.company.bs
+				)
+				this.users.push(newItem)
+			}
+			UsersAction(this.users)
+		},null)
 	}
 
 	render(){
